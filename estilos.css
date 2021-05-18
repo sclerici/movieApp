@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+:root{
+    --primary-color: #22254b;
+    --secondary-color: #373b69;
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+header{
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--secondary-color);
+}
+
+#main_title{
+    color: #fff;
+    margin-left: 15px;
+    font-size: 0.8em;
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* buscador de peliculas */
+.search{
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    font-family: inherit;
+    padding: 0.5rem 1rem;
+    color: #fff;
+}
+
+.search::placeholder{
+    color: #7378c5;
+}
+
+
+.search:focus{
+    outline: none;
+    background-color: var(--primary-color);
+}
+
+/* container global de peliculas */
+main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* container pelicula */
+.movie{
+    width: 300px;
+    margin: 1rem;
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+/* imagen pelicula*/
+.movie img{
+    width: 100%;
+}
+
+.movie-info{
+    color: #eee;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 0.5rem 1rem 1rem;
+     letter-spacing: 0.5px;
+}
+
+/*titulo pelicula*/
+.movie-info h3{
+    margin-top: 0;
+}
+
+/*puntaje*/
+.movie-info span{
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.movie-info span.green{
+    color: lightgreen;
+}
+
+.movie-info span.orange{
+    color: orange;
+}
+
+.movie-info span.red{
+    color: red;
+}
+
+/* overview, reseña */ 
+/* cubrimos el 101% de la carta de la pelicula con position y despues con transform la bajamos a un 101%*/
+.overview{
+    background-color: #fff;
+    padding: 1rem;
+    font-size: 0.9em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 100%;
+    filter: opacity(0.9);
+    transform: translateY(101%);
+    /* agregamos el efecto de la transicion a la propiedad transform*/
+    transition: transform 0.3s ease;
+}
+
+/* cuando pasamos el mouse por arriba, volvemos a cubrir la carta de la pelicula con la reseña mediante transform*/
+.movie:hover .overview{
+    transform:  translateY(0);
+}
+
+footer{
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* media queries */
+/* iphone PLUSES*/
+@media screen and (max-width: 768px) {
+    
+    #main_title{
+        font-size: .9rem;
+    }
+
+    .movie{
+        width: 40%;
+    }
+
+    .movie-info{
+        font-size: 10px;;
+    }
+
+    .movie-info span{
+        font-size: 10px;
+        transform: translateX(10px);
+    }
+
+    .overview{
+        font-size: 0.6rem;
+    }
+
+    footer{
+        font-size: 1em;
+    }
+
+}
